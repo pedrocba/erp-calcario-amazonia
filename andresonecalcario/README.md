@@ -14,13 +14,14 @@ Aplicação React + Vite utilizada para o ERP da Calcário Amazônia. O projeto 
 
 ## Variáveis de ambiente
 
-A comunicação com a API do Base44 continua ativa, mas agora o `appId` é lido de uma variável de ambiente para facilitar diferentes ambientes de execução.
+Por padrão o projeto roda em modo **aberto**, utilizando um mock in-memory que elimina autenticação e dependência do backend Base44 para você testar as telas rapidamente. Para alternar entre o modo aberto e o backend real, utilize as variáveis abaixo:
 
 | Variável | Descrição |
 | --- | --- |
-| `VITE_BASE44_APP_ID` | Identificador do app cadastrado no Base44. Configure-a no `.env` local e nos Environment Variables da Netlify. |
+| `VITE_MOCK_MODE` | Quando `true` (padrão), usa o mock local sem autenticação. Defina como `false` para falar com o backend Base44. |
+| `VITE_BASE44_APP_ID` | Identificador do app cadastrado no Base44. Necessário apenas quando `VITE_MOCK_MODE=false`. |
 
-Caso a variável não seja informada, o valor padrão `68ea91a66a9614db4a82043d` será utilizado apenas para desenvolvimento.
+Caso a variável do app não seja informada no modo conectado, o valor padrão `68ea91a66a9614db4a82043d` será utilizado apenas para desenvolvimento.
 
 ## Rodando localmente
 
