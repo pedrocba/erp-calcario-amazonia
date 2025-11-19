@@ -5,6 +5,7 @@
 [build.environment]
   # Provide a safe default so local builds still run.
   VITE_BASE44_APP_ID = "68ea91a66a9614db4a82043d"
+  NODE_VERSION = "18"
 
 [[redirects]]
   from = "/*"

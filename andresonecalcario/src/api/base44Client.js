@@ -7,8 +7,10 @@ const getEnvVar = (key) => {
     return import.meta.env[key];
   }
 
-  if (typeof process !== 'undefined' && process.env?.[key]) {
-    return process.env[key];
+  // Fallback para builds fora do Vite (ex.: Netlify CLI) sem expor a variável no bundle.
+  const nodeEnv = globalThis?.process?.env?.[key];
+  if (nodeEnv) {
+    return nodeEnv;
   }
 
   return undefined;
